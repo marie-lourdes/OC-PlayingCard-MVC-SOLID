@@ -16,7 +16,7 @@ public enum Rank {
 	
 	int rank;
 	
-	// contructor ENUM sont privée tout comme les class utilitaires contrairement au constructor de class non utilitaire qui sont public par defaut
+	// contructor ENUM peut etre  sur la visibilité package ou private tout comme les class utilitaires contrairement au constructor de class non utilitaire qui sont public par defaut
 	private Rank(int value) {
 		rank = value;
 	}
