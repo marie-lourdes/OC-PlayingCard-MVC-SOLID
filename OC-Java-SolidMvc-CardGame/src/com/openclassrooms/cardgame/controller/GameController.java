@@ -54,7 +54,7 @@ public class GameController {
 	public void startGame() {
 		if (gameState != GameState.CardsDealt) {
 			deck.shuffle();
-			int playerIndex = 1;
+			int playerIndex = 1; // les index de l arraylist Players est affiché avec l index 1 qui est l index 0 , puis est incrementé
 			for (Player player : players) {
 				player.addCardToHand(deck.removeTopCard());
 				view.showFaceDownCardForPlayer(playerIndex++, player.getName());
