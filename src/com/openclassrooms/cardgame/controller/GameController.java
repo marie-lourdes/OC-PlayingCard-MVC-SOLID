@@ -72,8 +72,7 @@ public class GameController {
 		for (Player player : players) {
 			PlayingCard pc = player.getCard(0);
 			pc.flip();
-			view.showCardForPlayer(playerIndex++, player.getName(), 
-					pc.getRank().toString(), pc.getSuit().toString());
+			view.showCardForPlayer(playerIndex++, player.getName(), pc.getRank().toString(), pc.getSuit().toString());
 		}
 
 		evaluateWinner();
