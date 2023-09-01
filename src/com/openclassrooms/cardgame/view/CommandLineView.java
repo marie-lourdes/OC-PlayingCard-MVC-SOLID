@@ -5,10 +5,10 @@ import java.util.Scanner;
 import com.openclassrooms.cardgame.controller.GameController;
 
 public class CommandLineView implements GameViewable {
-	
+
 	GameController controller;
 	Scanner keyboard = new Scanner(System.in);
-	
+
 	public void setController(GameController gc) {
 		this.controller = gc;
 	}
@@ -30,9 +30,10 @@ public class CommandLineView implements GameViewable {
 	}
 
 	public void promptForNewGame() {
-		System.out.println("Press enter to deal again");
-		keyboard.nextLine();
-		controller.startGame();
+		System.out.println("Press enter to deal again or '+q' to exit");
+		;
+		controller.nextAction(keyboard.nextLine());
+
 	}
 
 	public void showWinner(String playerName) {
@@ -40,14 +41,14 @@ public class CommandLineView implements GameViewable {
 	}
 
 	public void showPlayerName(int playerIndex, String playerName) {
-		System.out.println("["+playerIndex+"]["+playerName+"]");
+		System.out.println("[" + playerIndex + "][" + playerName + "]");
 	}
 
 	public void showFaceDownCardForPlayer(int i, String playerName) {
-		System.out.println("["+i+"]["+playerName+"][x][x]");
+		System.out.println("[" + i + "][" + playerName + "][x][x]");
 	}
 
 	public void showCardForPlayer(int i, String playerName, String rank, String suit) {
-		System.out.println("["+i+"]["+playerName+"]["+rank+"]["+suit+"]");
+		System.out.println("[" + i + "][" + playerName + "][" + rank + "][" + suit + "]");
 	};
 }
