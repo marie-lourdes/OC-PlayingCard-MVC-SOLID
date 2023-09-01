@@ -44,6 +44,8 @@ public class GameController {
 		case WinnerRevealed:
 			view.promptForNewGame();
 			break;
+		default:
+			break;
 		}
 	}
 
