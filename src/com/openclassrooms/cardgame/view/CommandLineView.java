@@ -9,6 +9,9 @@ public class CommandLineView implements GameViewable {
 	GameController controller;
 	Scanner keyboard = new Scanner(System.in);
 
+	// injection de propriété avec setter, une alternative a l injection de
+	// dependance via le constructor de commandLineView, cette dependance au
+	// controller est optionnelle,
 	public void setController(GameController gc) {
 		this.controller = gc;
 	}
