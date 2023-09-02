@@ -53,5 +53,5 @@ public class CommandLineView implements GameViewable {
 
 	public void showCardForPlayer(int i, String playerName, String rank, String suit) {
 		System.out.println("[" + i + "][" + playerName + "][" + rank + "][" + suit + "]");
-	};
+	}
 }
