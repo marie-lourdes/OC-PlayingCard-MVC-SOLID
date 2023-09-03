@@ -22,6 +22,7 @@ public class GameController {
 	GameViewable view;
 	GameState gameState;
 	GameEvaluator evaluator;
+	int round = 0;
 
 	public GameController(Deck deck, GameViewable view, GameEvaluator gameEvaluator) {
 		super();
@@ -86,7 +87,25 @@ public class GameController {
 	}
 
 	void evaluateWinner() {
-		winner = evaluator.evaluateWinner(players);
+		// on evalue le winner , si l eglité est absolue en valeur et couleur c est le
+		// controller sui decide de recommence un tour de jeu,et d arreter le jeu au
+		// 5eme round
+		try {
+			winner = evaluator.evaluateWinner(players);
+			if (winner == null && round <= 5) {
+				round++;
+				gameState = GameState.WinnerRevealed;
+				this.run();
+
+			}
+		} catch (NullPointerException e) {
+			// une winner provoque une une nullpointer exception
+			// apres avoir renvoyé null au moins cinq fois dans les 5 round executé, le
+			// system gere
+			// l exception en arretant le jeu
+			System.exit(0);
+		}
+
 	}
 
 	void displayWinner() {
