@@ -1,36 +1,17 @@
 package com.openclassrooms.cardgame.model;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
-public class Deck {
-	private List<PlayingCard> cards;
-
-	public Deck() {
-		cards = new ArrayList<PlayingCard>();
-		for (Rank rank : Rank.values()) {
-
-			for (Suit suit : Suit.values()) {
-				if (rank.value() == 0 && suit.value() == 0) {
-					System.out.println("Creating card [" + rank + "][" + suit + "]");
-					cards.add(new PlayingCard(rank, suit));
-					break;
-				}
-				if (suit.value() != 0) {
-					System.out.println("Creating card [" + rank + "][" + suit + "]");
-					cards.add(new PlayingCard(rank, suit));
-				}
-			}
-		}
-		shuffle();
-	}
+//la classe concrete Deck est devenu une classe abstraite utilisé par les differente class de type de deck :
+//TestDeck, NormalDeck, SmallDeck et utiliser les methode herité de Deck , et la methode shuffle dans leur constructor afin de melanger un certain nombre de carte selon le type de deck, jeu de carte
+public abstract class Deck {
+	protected List<PlayingCard> cards;
 
 	public void shuffle() {
 		Random random = new Random();
 		for (int i = 0; i < cards.size(); ++i) {
-
 			Collections.swap(cards, i, random.nextInt(cards.size()));
 		}
 	}
