@@ -97,8 +97,8 @@ public class GameController {
 				round++;
 				gameState = GameState.WinnerRevealed;
 				this.run();
-
 			}
+
 		} catch (NullPointerException e) {
 			// une winner provoque une une nullpointer exception
 			// apres avoir renvoyé null au moins cinq fois dans les 5 round executé, le

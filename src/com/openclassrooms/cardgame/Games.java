@@ -16,7 +16,7 @@ public class Games {
 		//// TestDeck, NormalDeck, SmallDeck qui utilise les methode herité de Deck ,
 		// et la methode shuffle dans leur constructor afin de melanger un certain
 		// nombre de carte selon le type de deck, jeu de carte
-		GameController gc = new GameController(DeckFactory.makeDeck(DeckType.TEST), gsv, new HighCardGameEvaluator());
+		GameController gc = new GameController(DeckFactory.makeDeck(DeckType.NORMAL), gsv, new HighCardGameEvaluator());
 
 		gc.run();
 	}
