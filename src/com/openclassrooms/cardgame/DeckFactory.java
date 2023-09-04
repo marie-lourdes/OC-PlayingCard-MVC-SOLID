@@ -8,7 +8,7 @@ import com.openclassrooms.cardgame.model.TestDeck;
 //class utilitaire qui se charge d instancier les objet model Deck 
 public class DeckFactory {
 	public enum DeckType {
-		Normal, Small, Test
+		NORMAL, SMALL, TEST
 	};
 
 //le deck factory a besoin de la classe mere, l abstraction deck, classe abstraite  le type generale et abstraite 
@@ -16,11 +16,11 @@ public class DeckFactory {
 	// NormalDeck, SmallDeck, et TestDeck
 	public static Deck makeDeck(DeckType type) {
 		switch (type) {
-		case Normal:
+		case NORMAL:
 			return new NormalDeck();
-		case Small:
+		case SMALL:
 			return new SmallDeck();
-		case Test:
+		case TEST:
 			return new TestDeck();
 		}
 
