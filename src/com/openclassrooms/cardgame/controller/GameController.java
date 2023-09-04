@@ -24,6 +24,7 @@ public class GameController {
 	GameEvaluator evaluator;
 	int round = 0;
 
+// le controller utilise l abstraction deck.java classe abstraite pour utiliser les methodes de la classe abstraite
 	public GameController(Deck deck, GameViewable view, GameEvaluator gameEvaluator) {
 		super();
 		this.deck = deck;
