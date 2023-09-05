@@ -4,6 +4,7 @@ import com.openclassrooms.cardgame.buider.GameBuilder;
 import com.openclassrooms.cardgame.buider.SmallHightCardGameBuilder;
 import com.openclassrooms.cardgame.controller.GameController;
 import com.openclassrooms.cardgame.model.SomeClass;
+import com.openclassrooms.cardgame.model.SoundManager;
 import com.openclassrooms.cardgame.view.GameSwingView;
 
 public class Games {
@@ -57,9 +58,14 @@ public class Games {
 
 		b.someField = 5;
 		System.out.println(b.someField);
-		System.out.println(a.someField);
+		System.out.println("a somefield pas modifié apres un clone: " + a.someField);
 		System.out.println(b.someField2);
 
+		/* ********************************pattern Singleton********************** */
+		SoundManager soundManagerSingleton = SoundManager.getInstance();
+		System.out.println("soundmanager volume: " + soundManagerSingleton.getVolume());
+		soundManagerSingleton.setVolume(5);
+		System.out.println("soundmanager volume modifié: " + soundManagerSingleton.getVolume());
 	}
 
 }
