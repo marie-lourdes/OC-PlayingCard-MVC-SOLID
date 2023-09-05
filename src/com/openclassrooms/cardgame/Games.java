@@ -38,9 +38,7 @@ public class Games {
 		GameController gc = new GameController(game.getDeck(), gsv, game.getEvaluator());
 		gc.run();
 
-		/*
-		 * *******************************pattern Prototype***************************
-		 */
+		/* ********************************pattern Prototype********************** */
 
 		// design pattern Prototype clone pour recreer des objets avec copie et un clone
 		// nouvel instance
