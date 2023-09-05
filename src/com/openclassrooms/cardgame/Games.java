@@ -1,9 +1,8 @@
 package com.openclassrooms.cardgame;
 
 import com.openclassrooms.cardgame.buider.GameBuilder;
-import com.openclassrooms.cardgame.buider.NormalHightCardGameBuilder;
+import com.openclassrooms.cardgame.buider.SmallHightCardGameBuilder;
 import com.openclassrooms.cardgame.controller.GameController;
-import com.openclassrooms.cardgame.model.Game;
 import com.openclassrooms.cardgame.model.SomeClass;
 import com.openclassrooms.cardgame.view.GameSwingView;
 
@@ -33,9 +32,10 @@ public class Games {
 		// design pattern Buider qui permet de recuperer une formule de jeu avec l
 		// option small jeu 32 cartes et l evaluation de la carte la plus forte
 		// Et lancer le leu avec ces options precise et assemblée ensemble
-		GameBuilder normalHighCardGameBuilder = new NormalHightCardGameBuilder();
-		Game game = normalHighCardGameBuilder.getGame();
-		GameController gc = new GameController(game.getDeck(), gsv, game.getEvaluator());
+		GameBuilder normalHightCardGameBuilder = new SmallHightCardGameBuilder();
+
+		GameController gc = new GameController(normalHightCardGameBuilder.getDeck(), gsv,
+				normalHightCardGameBuilder.getEvaluator());
 		gc.run();
 
 		/* ********************************pattern Prototype********************** */
