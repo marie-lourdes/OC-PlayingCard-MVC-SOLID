@@ -6,8 +6,10 @@ import java.util.List;
 
 import com.openclassrooms.cardgame.games.GameEvaluator;
 import com.openclassrooms.cardgame.model.Deck;
+import com.openclassrooms.cardgame.model.IPlayableCard;
 import com.openclassrooms.cardgame.model.Player;
 import com.openclassrooms.cardgame.model.PlayingCard;
+import com.openclassrooms.cardgame.model.PlayingCardAdapter;
 import com.openclassrooms.cardgame.view.GameViewable;
 
 public class GameController {
@@ -75,8 +77,14 @@ public class GameController {
 	public void flipCards() {
 		int playerIndex = 1;
 		for (Player player : players) {
+			IPlayableCard pca = new PlayingCardAdapter();
+
+			System.out.println("faceup de PlayingCardAdapter depuis le controller" + pca.flip());
 			PlayingCard pc = player.getCard(0);
+
 			pc.flip();
+
+			System.out.println("faceup de PlayingCard depuis le controller" + pc.isFaceUp());
 			view.showCardForPlayer(playerIndex++, player.getName(), pc.getRank().toString(), pc.getSuit().toString());
 		}
 
