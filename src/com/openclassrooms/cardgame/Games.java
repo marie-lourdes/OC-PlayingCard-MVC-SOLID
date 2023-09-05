@@ -8,6 +8,7 @@ import com.openclassrooms.cardgame.view.GameSwingView;
 public class Games {
 
 	public static void main(String args[]) {
+
 		GameSwingView gsv = new GameSwingView();
 		gsv.createAndShowGUI();
 		// appel de la methode makedeck a partir de la class Deckfactory sans l
@@ -19,5 +20,7 @@ public class Games {
 		GameController gc = new GameController(DeckFactory.makeDeck(DeckType.NORMAL), gsv, new HighCardGameEvaluator());
 
 		gc.run();
+
 	}
+
 }
