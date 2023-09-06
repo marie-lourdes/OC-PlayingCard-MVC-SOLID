@@ -81,6 +81,8 @@ public class GameController {
 
 			/* ********************************pattern Adapter********************** */
 
+			// PLayingCardAdapter est l emballer de PlayingCard et de CoolCard pour les
+			// adapter ensemble grace à l interface IplayableCard
 			// PLayingCardAdapter herite de PLayingCard et adapte le code de Playingcard
 			// dont il herite en modifiant l interface implementé avec le code code card et
 			// sa méthode turnover toutes les occureces playingCard d origine remplacé par
