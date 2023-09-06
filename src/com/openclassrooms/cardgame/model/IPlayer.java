@@ -1,10 +1,10 @@
 package com.openclassrooms.cardgame.model;
 
-public class Player {
+public class IPlayer {
 	private String name;
 	private Hand hand;
 
-	public Player(String name) {
+	public IPlayer(String name) {
 		this.name = name;
 		hand = new Hand();
 	}

@@ -6,7 +6,7 @@ import java.util.List;
 
 import com.openclassrooms.cardgame.games.GameEvaluator;
 import com.openclassrooms.cardgame.model.Deck;
-import com.openclassrooms.cardgame.model.Player;
+import com.openclassrooms.cardgame.model.IPlayer;
 import com.openclassrooms.cardgame.model.PlayingCardAdapter;
 import com.openclassrooms.cardgame.view.GameViewable;
 
@@ -17,8 +17,8 @@ public class GameController {
 	}
 
 	Deck deck;
-	List<Player> players;
-	Player winner;
+	List<IPlayer> players;
+	IPlayer winner;
 	GameViewable view;
 	GameState gameState;
 	GameEvaluator evaluator;
@@ -29,7 +29,7 @@ public class GameController {
 		super();
 		this.deck = deck;
 		this.view = view;
-		this.players = new ArrayList<Player>();
+		this.players = new ArrayList<IPlayer>();
 		this.gameState = GameState.AddingPlayers;
 		this.evaluator = gameEvaluator;
 		view.setController(this);
@@ -54,7 +54,7 @@ public class GameController {
 
 	public void addPlayer(String playerName) {
 		if (gameState == GameState.AddingPlayers) {
-			players.add(new Player(playerName));
+			players.add(new IPlayer(playerName));
 			view.showPlayerName(players.size(), playerName);
 		}
 	}
@@ -63,7 +63,7 @@ public class GameController {
 		if (gameState != GameState.CardsDealt) {
 			deck.shuffle();
 			int playerIndex = 1;
-			for (Player player : players) {
+			for (IPlayer player : players) {
 				player.addCardToHand(deck.removeTopCard());
 				view.showFaceDownCardForPlayer(playerIndex++, player.getName());
 			}
@@ -74,7 +74,7 @@ public class GameController {
 
 	public void flipCards() {
 		int playerIndex = 1;
-		for (Player player : players) {
+		for (IPlayer player : players) {
 			PlayingCardAdapter playingCard = player.getCard(0);
 
 			System.out.println("faceup de PlayingCard  depuis le controller" + playingCard.flip());
@@ -135,7 +135,7 @@ public class GameController {
 	}
 
 	void rebuildDeck() {
-		for (Player player : players) {
+		for (IPlayer player : players) {
 			deck.returnCardToDeck(player.removeCard());
 		}
 	}
