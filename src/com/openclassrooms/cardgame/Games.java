@@ -1,5 +1,6 @@
 package com.openclassrooms.cardgame;
 
+<<<<<<< HEAD
 import com.openclassrooms.cardgame.buider.GameBuilder;
 import com.openclassrooms.cardgame.buider.SmallHightCardGameBuilder;
 import com.openclassrooms.cardgame.controller.GameController;
@@ -67,5 +68,6 @@ public class Games {
 		soundManagerSingleton.setVolume(5);
 		System.out.println("soundmanager volume modifié: " + soundManagerSingleton.getVolume());
 	}
+
 
 }
