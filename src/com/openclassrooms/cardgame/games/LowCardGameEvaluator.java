@@ -3,7 +3,7 @@ package com.openclassrooms.cardgame.games;
 import java.util.List;
 
 import com.openclassrooms.cardgame.model.Player;
-import com.openclassrooms.cardgame.model.PlayingCard;
+import com.openclassrooms.cardgame.model.PlayingCardAdapter;
 
 public class LowCardGameEvaluator implements GameEvaluator {
 
@@ -19,7 +19,7 @@ public class LowCardGameEvaluator implements GameEvaluator {
 			if (bestPlayer == null) {
 				newBestPlayer = true;
 			} else {
-				PlayingCard pc = player.getCard(0);
+				PlayingCardAdapter pc = player.getCard(0);
 				int thisRank = pc.getRank().value();
 				if (thisRank <= bestRank) {
 					if (thisRank < bestRank) {
@@ -34,7 +34,7 @@ public class LowCardGameEvaluator implements GameEvaluator {
 
 			if (newBestPlayer) {
 				bestPlayer = player;
-				PlayingCard pc = player.getCard(0);
+				PlayingCardAdapter pc = player.getCard(0);
 				bestRank = pc.getRank().value();
 				bestSuit = pc.getSuit().value();
 			}

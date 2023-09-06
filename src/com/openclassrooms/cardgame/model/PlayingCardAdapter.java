@@ -1,14 +1,18 @@
 package com.openclassrooms.cardgame.model;
 
-public class PlayingCardAdapter implements IPlayableCard {
+public class PlayingCardAdapter extends PlayingCard implements IPlayableCard {
+	CoolCard thisCard = new CoolCard();
+
+	public PlayingCardAdapter(Rank rank, Suit suit) {
+		super(rank, suit);
+	}
+
 // le mieux serait de definir toutes les methode de playingcard dans l interface IplayableCard pour l exemple de PlayingCardAdapter
-
-	CoolCard thisCard = new CoolCard(); ;
-
+	@Override
 	public boolean flip() {
 
-		boolean faceUp = thisCard.turnOver();
-		return faceUp;
+		super.faceUp = thisCard.turnOver(super.faceUp);
+		return super.faceUp;
 
 	}
 }

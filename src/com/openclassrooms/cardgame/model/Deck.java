@@ -7,7 +7,7 @@ import java.util.Random;
 //la classe concrete Deck est devenu une classe abstraite utilisé par les differente class de type de deck :
 //TestDeck, NormalDeck, SmallDeck et utiliser les methode herité de Deck , et la methode shuffle dans leur constructor afin de melanger un certain nombre de carte selon le type de deck, jeu de carte
 public abstract class Deck {
-	protected List<PlayingCard> cards;
+	protected List<PlayingCardAdapter> cards;
 
 	public void shuffle() {
 		Random random = new Random();
@@ -16,15 +16,15 @@ public abstract class Deck {
 		}
 	}
 
-	public PlayingCard removeTopCard() {
+	public PlayingCardAdapter removeTopCard() {
 		return cards.remove(0);
 	}
 
-	public void returnCardToDeck(PlayingCard pc) {
+	public void returnCardToDeck(PlayingCardAdapter pc) {
 		cards.add(pc);
 	}
 
-	public List<PlayingCard> getCards() {
+	public List<PlayingCardAdapter> getCards() {
 		return cards;
 	}
 

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class NormalDeck extends Deck {
 	public NormalDeck() {
-		cards = new ArrayList<PlayingCard>();
+		cards = new ArrayList<PlayingCardAdapter>();
 		for (Rank rank : Rank.values()) {
 			for (Suit suit : Suit.values()) {
 				// type de jeux de carte comprenant le joker avec une seule ietration sur la
@@ -13,13 +13,13 @@ public class NormalDeck extends Deck {
 
 				if (rank.value() == 0 && suit.value() == 0) {
 					System.out.println("Creating card [" + rank + "][" + suit + "]");
-					cards.add(new PlayingCard(rank, suit));
+					cards.add(new PlayingCardAdapter(rank, suit));
 					break;
 				}
 
 				if (suit.value() != 0) {
 					System.out.println("Creating card [" + rank + "][" + suit + "]");
-					cards.add(new PlayingCard(rank, suit));
+					cards.add(new PlayingCardAdapter(rank, suit));
 					//
 				}
 			}

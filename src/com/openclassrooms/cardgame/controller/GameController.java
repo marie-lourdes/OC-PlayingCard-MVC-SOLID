@@ -6,9 +6,7 @@ import java.util.List;
 
 import com.openclassrooms.cardgame.games.GameEvaluator;
 import com.openclassrooms.cardgame.model.Deck;
-import com.openclassrooms.cardgame.model.IPlayableCard;
 import com.openclassrooms.cardgame.model.Player;
-import com.openclassrooms.cardgame.model.PlayingCard;
 import com.openclassrooms.cardgame.model.PlayingCardAdapter;
 import com.openclassrooms.cardgame.view.GameViewable;
 
@@ -77,14 +75,27 @@ public class GameController {
 	public void flipCards() {
 		int playerIndex = 1;
 		for (Player player : players) {
-			IPlayableCard pca = new PlayingCardAdapter();
+			PlayingCardAdapter playingCard = player.getCard(0);
 
-			System.out.println("faceup de PlayingCardAdapter depuis le controller" + pca.flip());
-			PlayingCard pc = player.getCard(0);
+			System.out.println("faceup de PlayingCard  depuis le controller" + playingCard.flip());
+
+			/* ********************************pattern Adapter********************** */
+
+			// PLayingCardAdapter herite de PLayingCard et adapte le code de Playingcard
+			// dont il herite en modifiant l interface implementé avec le code code card et
+			// sa méthode turnover toutes les occureces playingCard d origine remplacé par
+			// PlayongCradAdapter pour pouvoir integrer
+			// et adpater la nouvelle fonctionnalité de coolCard sans reecrire le code de
+			// PlayCard, on utilise
+			// le design pattern Adapter
+			// si on veut plus l adapter la nouvelle fonctionnalité on enleve
+			// PLayingCardAdapter et garde son implementation de Playablecard d origine pour
+			// flip() au lieude turnover()
+			PlayingCardAdapter pc = player.getCard(0);
 
 			pc.flip();
 
-			System.out.println("faceup de PlayingCard depuis le controller" + pc.isFaceUp());
+			System.out.println("faceup de PlayingCardAdapter de PlayingCard depuis le controller" + pc.isFaceUp());
 			view.showCardForPlayer(playerIndex++, player.getName(), pc.getRank().toString(), pc.getSuit().toString());
 		}
 

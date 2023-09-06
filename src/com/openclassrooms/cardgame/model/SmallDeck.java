@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class SmallDeck extends Deck {
 	public SmallDeck() {
-		cards = new ArrayList<PlayingCard>();
+		cards = new ArrayList<PlayingCardAdapter>();
 		for (Rank rank : Rank.values()) {
 			for (Suit suit : Suit.values()) {
 
@@ -18,7 +18,7 @@ public class SmallDeck extends Deck {
 
 				if (rank.value() >= 7 && suit.value() != 0) {
 					System.out.println("Creating card: [" + rank + "][" + suit + "]");
-					cards.add(new PlayingCard(rank, suit));
+					cards.add(new PlayingCardAdapter(rank, suit));
 				}
 			}
 		}

@@ -9,15 +9,15 @@ public class Player {
 		hand = new Hand();
 	}
 
-	public void addCardToHand(PlayingCard pc) {
+	public void addCardToHand(PlayingCardAdapter pc) {
 		hand.addCard(pc);
 	}
 
-	public PlayingCard getCard(int index) {
+	public PlayingCardAdapter getCard(int index) {
 		return hand.getCard(index);
 	}
 
-	public PlayingCard removeCard() {
+	public PlayingCardAdapter removeCard() {
 		return hand.removeCard();
 	}
 
