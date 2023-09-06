@@ -7,7 +7,9 @@ import java.util.List;
 import com.openclassrooms.cardgame.games.GameEvaluator;
 import com.openclassrooms.cardgame.model.Deck;
 import com.openclassrooms.cardgame.model.IPlayer;
+import com.openclassrooms.cardgame.model.Player;
 import com.openclassrooms.cardgame.model.PlayingCardAdapter;
+import com.openclassrooms.cardgame.model.WinnerPlayer;
 import com.openclassrooms.cardgame.view.GameViewable;
 
 public class GameController {
@@ -54,7 +56,12 @@ public class GameController {
 
 	public void addPlayer(String playerName) {
 		if (gameState == GameState.AddingPlayers) {
-			players.add(new IPlayer(playerName));
+			// nous ajoutons les Players de la classe PLayer qui implements IPlayer
+			// et non new Iplayer suggeré par Eclipse lors de l ajout de IPlayer dans les
+			// occurences anciennemnt Player
+			// les interface ne s intantie pas tout commes les classe abstraite et les
+			// classe utilitaires
+			players.add(new Player(playerName));
 			view.showPlayerName(players.size(), playerName);
 		}
 	}
@@ -113,7 +120,13 @@ public class GameController {
 		// controller sui decide de recommence un tour de jeu,et d arreter le jeu au
 		// 5eme round
 		try {
-			winner = evaluator.evaluateWinner(players);
+
+			/* ********************************pattern Decorator********************** */
+			// utilisation de l objet Decorator WinnerPlayer qui utilise l objet initial
+			// player
+			// avec un methode de l interface Iplayer qui affiche le nom du player avec une
+			// decoration autour du nom Player
+			winner = new WinnerPlayer(evaluator.evaluateWinner(players));
 			if (winner == null && round <= 5) {
 				round++;
 				gameState = GameState.WinnerRevealed;
