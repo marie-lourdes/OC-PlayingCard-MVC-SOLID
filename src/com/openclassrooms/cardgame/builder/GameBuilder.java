@@ -1,4 +1,4 @@
-package com.openclassrooms.cardgame.buider;
+package com.openclassrooms.cardgame.builder;
 
 import com.openclassrooms.cardgame.games.GameEvaluator;
 import com.openclassrooms.cardgame.model.Deck;

@@ -1,8 +1,7 @@
 package com.openclassrooms.cardgame;
 
-<<<<<<< HEAD
-import com.openclassrooms.cardgame.buider.GameBuilder;
-import com.openclassrooms.cardgame.buider.SmallHightCardGameBuilder;
+import com.openclassrooms.cardgame.builder.GameBuilder;
+import com.openclassrooms.cardgame.builder.SmallHightCardGameBuilder;
 import com.openclassrooms.cardgame.controller.GameController;
 import com.openclassrooms.cardgame.model.SomeClass;
 import com.openclassrooms.cardgame.model.SoundManager;
@@ -29,7 +28,7 @@ public class Games {
 		 * gsv, GameEvaluatorFactory.makeEvaluator(EvaluatorType.HIGHT));
 		 */
 
-		/* *****************************pattern Buider*************************** */
+		/* *****************************pattern Builder*************************** */
 
 		// design pattern Buider qui permet de recuperer une formule de jeu avec l
 		// option small jeu 32 cartes et l evaluation de la carte la plus forte
@@ -68,6 +67,5 @@ public class Games {
 		soundManagerSingleton.setVolume(5);
 		System.out.println("soundmanager volume modifié: " + soundManagerSingleton.getVolume());
 	}
-
 
 }
