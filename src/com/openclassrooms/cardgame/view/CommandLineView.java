@@ -5,20 +5,13 @@ import java.util.Scanner;
 import com.openclassrooms.cardgame.controller.GameController;
 
 public class CommandLineView implements GameViewable {
-<<<<<<< HEAD
-
 	GameController controller;
 	Scanner keyboard = new Scanner(System.in);
 
 	// injection de propriété avec setter, une alternative a l injection de
 	// dependance via le constructor de commandLineView, cette dependance au
 	// controller est optionnelle,
-=======
-	
-	GameController controller;
-	Scanner keyboard = new Scanner(System.in);
-	
->>>>>>> part3-chap3-step1
+
 	public void setController(GameController gc) {
 		this.controller = gc;
 	}
@@ -40,15 +33,8 @@ public class CommandLineView implements GameViewable {
 	}
 
 	public void promptForNewGame() {
-<<<<<<< HEAD
 		System.out.println("Press enter to deal again or '+q' to exit");
-		;
 		controller.nextAction(keyboard.nextLine());
-
-=======
-		System.out.println("Press enter to deal again or +q to exit");
-		controller.nextAction(keyboard.nextLine());
->>>>>>> part3-chap3-step1
 	}
 
 	public void showWinner(String playerName) {
@@ -56,7 +42,7 @@ public class CommandLineView implements GameViewable {
 	}
 
 	public void showPlayerName(int playerIndex, String playerName) {
-<<<<<<< HEAD
+
 		System.out.println("[" + playerIndex + "][" + playerName + "]");
 	}
 
@@ -67,16 +53,5 @@ public class CommandLineView implements GameViewable {
 	public void showCardForPlayer(int i, String playerName, String rank, String suit) {
 		System.out.println("[" + i + "][" + playerName + "][" + rank + "][" + suit + "]");
 	}
-=======
-		System.out.println("["+playerIndex+"]["+playerName+"]");
-	}
 
-	public void showFaceDownCardForPlayer(int i, String playerName) {
-		System.out.println("["+i+"]["+playerName+"][x][x]");
-	}
-
-	public void showCardForPlayer(int i, String playerName, String rank, String suit) {
-		System.out.println("["+i+"]["+playerName+"]["+rank+"]["+suit+"]");
-	};
->>>>>>> part3-chap3-step1
 }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class NormalDeck extends Deck {
 	public NormalDeck() {
-<<<<<<< HEAD
+
 		cards = new ArrayList<PlayingCardAdapter>();
 		for (Rank rank : Rank.values()) {
 			for (Suit suit : Suit.values()) {
@@ -26,16 +26,6 @@ public class NormalDeck extends Deck {
 			}
 		}
 
-=======
-		cards = new ArrayList<PlayingCard>();
-		for(Rank rank : Rank.values()) {
-			for(Suit suit: Suit.values()) {
-				System.out.println("Creating card ["+rank+"]["+suit+"]");
-				cards.add(new PlayingCard(rank, suit));
-			}
-		}
-		
->>>>>>> part3-chap3-step1
 		shuffle();
 	}
 }

@@ -3,11 +3,7 @@ package com.openclassrooms.cardgame.games;
 import java.util.List;
 
 import com.openclassrooms.cardgame.model.Player;
-<<<<<<< HEAD
 import com.openclassrooms.cardgame.model.PlayingCardAdapter;
-=======
-import com.openclassrooms.cardgame.model.PlayingCard;
->>>>>>> part3-chap3-step1
 
 public class HighCardGameEvaluator implements GameEvaluator {
 
@@ -23,7 +19,6 @@ public class HighCardGameEvaluator implements GameEvaluator {
 			if (bestPlayer == null) {
 				newBestPlayer = true;
 			} else {
-<<<<<<< HEAD
 				PlayingCardAdapter pc = player.getCard(0);
 				int thisRank = pc.getRank().value();
 				if (thisRank >= bestRank) {
@@ -51,28 +46,14 @@ public class HighCardGameEvaluator implements GameEvaluator {
 							// fonctionnalité de le valuation de l egalité des carte en valeur et couleur
 							// testé avec testDeck
 						}
-=======
-				PlayingCard pc = player.getCard(0);
-				int thisRank = pc.getRank().value();
-				if (thisRank >= bestRank) {
-					if (thisRank > bestRank) {
-						newBestPlayer = true;
-					} else {
-						if (pc.getSuit().value() > bestSuit) {
-							newBestPlayer = true;
-						}
->>>>>>> part3-chap3-step1
+
 					}
 				}
 			}
 
 			if (newBestPlayer) {
 				bestPlayer = player;
-<<<<<<< HEAD
 				PlayingCardAdapter pc = player.getCard(0);
-=======
-				PlayingCard pc = player.getCard(0);
->>>>>>> part3-chap3-step1
 				bestRank = pc.getRank().value();
 				bestSuit = pc.getSuit().value();
 			}
