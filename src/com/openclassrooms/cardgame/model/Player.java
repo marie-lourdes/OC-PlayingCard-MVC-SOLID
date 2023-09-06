@@ -14,14 +14,17 @@ public class Player implements IPlayer {
 		hand.addCard(pc);
 	}
 
+	@Override
 	public PlayingCardAdapter getCard(int index) {
 		return hand.getCard(index);
 	}
 
+	@Override
 	public PlayingCardAdapter removeCard() {
 		return hand.removeCard();
 	}
 
+	@Override
 	public String getName() {
 		return name;
 	}
