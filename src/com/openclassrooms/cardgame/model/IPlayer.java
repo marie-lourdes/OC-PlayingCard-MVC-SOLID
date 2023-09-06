@@ -1,28 +1,13 @@
 package com.openclassrooms.cardgame.model;
 
-public class IPlayer {
-	private String name;
-	private Hand hand;
+public interface IPlayer {
 
-	public IPlayer(String name) {
-		this.name = name;
-		hand = new Hand();
-	}
+	void addCardToHand(PlayingCardAdapter pc);
 
-	public void addCardToHand(PlayingCardAdapter pc) {
-		hand.addCard(pc);
-	}
+	PlayingCardAdapter getCard(int index);
 
-	public PlayingCardAdapter getCard(int index) {
-		return hand.getCard(index);
-	}
+	PlayingCardAdapter removeCard();
 
-	public PlayingCardAdapter removeCard() {
-		return hand.removeCard();
-	}
-
-	public String getName() {
-		return name;
-	}
+	String getName();
 
 }
