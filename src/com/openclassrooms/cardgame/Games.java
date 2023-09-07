@@ -3,8 +3,10 @@ package com.openclassrooms.cardgame;
 import com.openclassrooms.cardgame.builder.GameBuilder;
 import com.openclassrooms.cardgame.builder.SmallHightCardGameBuilder;
 import com.openclassrooms.cardgame.controller.GameController;
+import com.openclassrooms.cardgame.model.CookSteak;
 import com.openclassrooms.cardgame.model.Discounter;
 import com.openclassrooms.cardgame.model.PrepareSteak;
+import com.openclassrooms.cardgame.model.RareSteak;
 import com.openclassrooms.cardgame.model.SomeClass;
 import com.openclassrooms.cardgame.model.SoundManager;
 import com.openclassrooms.cardgame.view.GameSwingPassiveView;
@@ -49,7 +51,7 @@ public class Games {
 		// desactiver le run du controller pour voir en oeuvre le pattern Prototype et
 		// le test de fonction lambda avec redifinition de l interface
 		// exemple qui ne sont pas lié aux jeux de cartes
-		// gc.run();
+		gc.run();
 
 		/* ****************************pattern Factory****************************** */
 
@@ -118,35 +120,21 @@ public class Games {
 		christmasDiscounter.applyDiscount("redefinition interface avec les fonctions lambada!");
 
 		/* *********************pattern Strategy********************** */
-		PrepareSteak cookSteak = new RareSteak();
+
+		// La classe CookSteack est l objet strategy qui utilise une des classe de la
+		// famille d algorithme pour le cooking steack au choix
+		// l objet strategy CookSteak choisit une variante de l algoritme avec les
+		// classes d implementations rareSteak , mediumStek, WellDoneSteak
+		// d implementation et l interface commune preparesteack
+		// ce pattern utilise le principe open/closed, pas besoin de modifier la class
+		// CookSteack, lorsque l'on veux changer de cuisson dans sa methode cook(),
+		// on utilise une autre implementation lors de l instantiation de CookSteack
+		// sans toucher au code de la classe
+		// on passe par une interface commune et differente implementation, qui injecté
+		// dans le constructor de CookSteak
+
+		PrepareSteak cookSteak = new CookSteak(new RareSteak());
 		cookSteak.cook("Charal");
-	}
-
-}
-
-/* *********************pattern Strategy********************** */
-class RareSteak implements PrepareSteak {
-
-	public void cook(String steak) {
-		/* pas trop longtemps */
-		System.out.println(" cuisson bleu");
-	}
-
-}
-
-class Medium implements PrepareSteak {
-
-	public void cook(String steak) {
-		/* garder le steak sur le grill un peu trop longtemps */
-		System.out.println(steak + " cuisson à point");
-	}
-}
-
-class WellDoneSteak implements PrepareSteak {
-
-	public void cook(String steak) {
-		/* oublier le steak et revenir plus tard */
-		System.out.println(" cuisson bien cuit");
 	}
 
 }
