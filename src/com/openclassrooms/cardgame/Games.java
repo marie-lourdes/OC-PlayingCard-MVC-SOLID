@@ -3,7 +3,6 @@ package com.openclassrooms.cardgame;
 import com.openclassrooms.cardgame.builder.GameBuilder;
 import com.openclassrooms.cardgame.builder.SmallHightCardGameBuilder;
 import com.openclassrooms.cardgame.controller.GameController;
-import com.openclassrooms.cardgame.model.SoundManager;
 import com.openclassrooms.cardgame.view.GameSwingPassiveView;
 import com.openclassrooms.cardgame.view.GameSwingView;
 import com.openclassrooms.cardgame.view.GameViewables;
@@ -12,6 +11,7 @@ import com.openclassrooms.exemples.Discounter;
 import com.openclassrooms.exemples.PrepareSteak;
 import com.openclassrooms.exemples.RareSteak;
 import com.openclassrooms.exemples.SomeClass;
+import com.openclassrooms.exemples.SoundManager;
 
 public class Games {
 
@@ -49,8 +49,8 @@ public class Games {
 		GameController gc = new GameController(smallHightCardGameBuilder.getDeck(), viewsComposite,
 				smallHightCardGameBuilder.getEvaluator());
 		// desactiver le run du controller pour voir en oeuvre le pattern Prototype, le
-		// pattern Strategy, et
-		// le test de fonction lambda avec redifinition de l interface fonctionnelle
+		// pattern Strategy,pattern Singleton
+		// et le test de fonction lambda avec redifinition de l interface fonctionnelle
 		// exemple qui ne sont pas lié aux jeux de cartes, voir dans le
 		// package:com.openclassrooms.exemples
 		gc.run();
@@ -83,6 +83,9 @@ public class Games {
 		 * gsv, normalHightCardGameBuilder.getEvaluator()); gc.run();
 		 */
 
+		// OTHER EXAMPLES OF DESIGN PATTERN in package com.openclassrooms.exemples out
+		// of package CardGame
+
 		/* ********************************pattern Prototype********************** */
 
 		// design pattern Prototype clone pour recreer des objets avec copie et un clone
@@ -111,16 +114,6 @@ public class Games {
 		soundManagerSingleton.setVolume(5);
 		System.out.println("soundmanager volume modifié: " + soundManagerSingleton.getVolume());
 
-		/* *****Refinition des methodes d interface avec les fonction lambada**** */
-
-		// java trouve la methode de l interface qui doit etre
-		// redfinit ci dessous
-		// sans nommer la methode a redefinir avec la fonction lambda, on implemente pas
-		// mais on l importe ou insere l interface focntionnele en l intgrant dans ce
-		// meme fichier
-		Discounter christmasDiscounter = (string) -> System.out.println("--------" + string + "------------");
-		christmasDiscounter.applyDiscount("redefinition interface avec les fonctions lambada!");
-
 		/* *********************pattern Strategy********************** */
 
 		// La classe Chef est l objet strategy qui utilise une des classe de la
@@ -137,6 +130,17 @@ public class Games {
 
 		PrepareSteak chef = new Chef(new RareSteak());
 		chef.cook("Charal");
+
+		/* *****Refinition des methodes d interface avec les fonction lambada**** */
+
+		// java trouve la methode de l interface qui doit etre
+		// redfinit ci dessous
+		// sans nommer la methode a redefinir avec la fonction lambda, on implemente pas
+		// mais on l importe ou insere l interface focntionnele en l intgrant dans ce
+		// meme fichier
+		Discounter christmasDiscounter = (string) -> System.out.println("--------" + string + "------------");
+		christmasDiscounter.applyDiscount("redefinition interface avec les fonctions lambada!");
+
 	}
 
 }

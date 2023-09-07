@@ -1,4 +1,4 @@
-package com.openclassrooms.cardgame.model;
+package com.openclassrooms.exemples;
 
 public class SoundManager {
 	// il faut garder en mémoire l'instance unique quelque part
