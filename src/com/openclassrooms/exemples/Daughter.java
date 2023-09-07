@@ -6,7 +6,7 @@ public class Daughter implements Person {
 
 	@Override
 	public String getSodaFromFridge() {
-		return " soda a la vanille servi a mum";
+		return " soda a la vanille servi a mum, oops ma soeur s est trompé";
 	}
 
 }

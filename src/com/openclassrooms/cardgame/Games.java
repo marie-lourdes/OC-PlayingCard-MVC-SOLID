@@ -13,6 +13,7 @@ import com.openclassrooms.exemples.PrepareSteak;
 import com.openclassrooms.exemples.RareSteak;
 import com.openclassrooms.exemples.SomeClass;
 import com.openclassrooms.exemples.Son;
+import com.openclassrooms.exemples.SonFriends;
 import com.openclassrooms.exemples.SoundManager;
 
 public class Games {
@@ -55,7 +56,8 @@ public class Games {
 		// et le test de fonction lambda avec redifinition de l interface fonctionnelle
 		// exemple qui ne sont pas lié aux jeux de cartes, voir dans le
 		// package:com.openclassrooms.exemples
-		gc.run();
+
+		// gc.run();
 
 		/* ****************************pattern Factory****************************** */
 
@@ -144,13 +146,30 @@ public class Games {
 		christmasDiscounter.applyDiscount("redefinition interface avec les fonctions lambada!");
 
 		/* *********************pattern d'Etat********************** */
+		// changemnt du comportement de l objet initial Son et de la boisson apporté par
+		// le Son,
+		// en fonction des objet utilisé dans le Son, par le client main, Daughter ou
+		// SonFriend ou le Son lui meme(avec le premier constructor), et donc fonction
+		// de l
+		// etat de l objet initial qui change avec son attribut Person personInKitchen
 
 		// the mum ask for your son soda passing by his daughter
-		Son son = new Son(new Daughter());
+		Son sonAndDaughter = new Son(new Daughter());
 		// son.getMumSoda();
-		String sodaOfMum = son.getMumSoda();
+		String sodaOfMum = sonAndDaughter.getMumSoda();
 		System.out.println(sodaOfMum);
 
+		// the mum ask for your son soda passing by your friend
+		Son sonAndFriend = new Son(new SonFriends());
+		// son.getMumSoda();
+		String soda3OfMum = sonAndFriend.getMumSoda();
+		System.out.println(soda3OfMum);
+
+		// the mum ask for your son soda , he bring soda himself without person
+		Son sonHimself = new Son();
+		// son.getMumSoda();
+		String soda2OfMum = sonHimself.getSodaFromFridge();
+		System.out.println(soda2OfMum);
 	}
 
 }

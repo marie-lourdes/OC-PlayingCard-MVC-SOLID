@@ -6,6 +6,10 @@ package com.openclassrooms.exemples;
 public class Son implements Person {
 	private Person personInKitchen;
 
+	public Son() {
+
+	}
+
 	public Son(Person p) {
 		this.personInKitchen = p;
 	}
