@@ -6,7 +6,7 @@ public class SonFriends implements Person {
 
 	@Override
 	public String getSodaFromFridge() {
-		return " premiere boisson trouvé sous la main dans le frigo servi a mum,oops mon pote s est trompé";
+		return " eau gazeuse, premiere boisson trouvé sous la main dans le frigo servi a mum,oops mon pote s est trompé";
 	}
 
 }
