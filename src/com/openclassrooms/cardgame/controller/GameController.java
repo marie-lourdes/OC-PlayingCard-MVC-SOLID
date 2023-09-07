@@ -15,7 +15,8 @@ import com.openclassrooms.cardgame.view.GameViewable;
 public class GameController {
 
 	enum GameState {
-		AddingPlayers, CardsDealt, WinnerRevealed;
+
+		ADDING_PLAYERS, CARDS_DEALT, WINNER_REVEALED;
 	}
 
 	Deck deck;
@@ -32,21 +33,21 @@ public class GameController {
 		this.deck = deck;
 		this.view = view;
 		this.players = new ArrayList<IPlayer>();
-		this.gameState = GameState.AddingPlayers;
+		this.gameState = GameState.ADDING_PLAYERS;
 		this.evaluator = gameEvaluator;
 		view.setController(this);
 	}
 
 	public void run() {
-		while (gameState == GameState.AddingPlayers) {
+		while (gameState == GameState.ADDING_PLAYERS) {
 			view.promptForPlayerName();
 		}
 
 		switch (gameState) {
-		case CardsDealt:
+		case CARDS_DEALT:
 			view.promptForFlip();
 			break;
-		case WinnerRevealed:
+		case WINNER_REVEALED:
 			view.promptForNewGame();
 			break;
 		default:
@@ -55,7 +56,7 @@ public class GameController {
 	}
 
 	public void addPlayer(String playerName) {
-		if (gameState == GameState.AddingPlayers) {
+		if (gameState == GameState.ADDING_PLAYERS) {
 			// nous ajoutons les Players de la classe PLayer qui implements IPlayer
 			// et non new Iplayer suggeré par Eclipse lors de l ajout de IPlayer dans les
 			// occurences anciennemnt Player
@@ -67,14 +68,14 @@ public class GameController {
 	}
 
 	public void startGame() {
-		if (gameState != GameState.CardsDealt) {
+		if (gameState != GameState.CARDS_DEALT) {
 			deck.shuffle();
 			int playerIndex = 1;
 			for (IPlayer player : players) {
 				player.addCardToHand(deck.removeTopCard());
 				view.showFaceDownCardForPlayer(playerIndex++, player.getName());
 			}
-			gameState = GameState.CardsDealt;
+			gameState = GameState.CARDS_DEALT;
 		}
 		this.run();
 	}
@@ -111,7 +112,7 @@ public class GameController {
 		evaluateWinner();
 		displayWinner();
 		rebuildDeck();
-		gameState = GameState.WinnerRevealed;
+		gameState = GameState.WINNER_REVEALED;
 		this.run();
 	}
 
@@ -129,7 +130,7 @@ public class GameController {
 			winner = new WinnerPlayer(evaluator.evaluateWinner(players));
 			if (winner == null && round <= 5) {
 				round++;
-				gameState = GameState.WinnerRevealed;
+				gameState = GameState.WINNER_REVEALED;
 				this.run();
 			}
 
