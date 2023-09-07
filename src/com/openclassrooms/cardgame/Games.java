@@ -14,15 +14,18 @@ public class Games {
 	public static void main(String args[]) {
 
 		/* ***********************pattern Composite******************** */
-
+		// Création de l 'Observable
 		GameViewables ViewsComposite = new GameViewables();
 
 		GameSwingView gsv = new GameSwingView();
 		gsv.createAndShowGUI();
-
+		// ajout de la vue graphique interactive Observer mais interagit
 		ViewsComposite.addViewable(gsv);
 
 		/* **************************pattern Observer********************* */
+		// ajout de 3 vue graphique passive et non interactive
+		// qui sont les Observers passives
+
 		for (int i = 0; i < 3; i++) {
 			GameSwingPassiveView passiveView = new GameSwingPassiveView();
 			passiveView.createAndShowGUI();
