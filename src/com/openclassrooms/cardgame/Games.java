@@ -45,6 +45,9 @@ public class Games {
 
 		GameController gc = new GameController(smallHightCardGameBuilder.getDeck(), viewsComposite,
 				smallHightCardGameBuilder.getEvaluator());
+		// desactiver le run du controller pour voir en oeuvre le pattern Prototype et
+		// le test de fonction lambda avec redifinition de l interface
+		// exemple qui ne sont pas lié aux jeux de cartes
 		gc.run();
 
 		/* ****************************pattern Factory****************************** */
