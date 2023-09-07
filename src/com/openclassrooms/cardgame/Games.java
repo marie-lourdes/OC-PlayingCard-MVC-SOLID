@@ -7,10 +7,12 @@ import com.openclassrooms.cardgame.view.GameSwingPassiveView;
 import com.openclassrooms.cardgame.view.GameSwingView;
 import com.openclassrooms.cardgame.view.GameViewables;
 import com.openclassrooms.exemples.Chef;
+import com.openclassrooms.exemples.Daughter;
 import com.openclassrooms.exemples.Discounter;
 import com.openclassrooms.exemples.PrepareSteak;
 import com.openclassrooms.exemples.RareSteak;
 import com.openclassrooms.exemples.SomeClass;
+import com.openclassrooms.exemples.Son;
 import com.openclassrooms.exemples.SoundManager;
 
 public class Games {
@@ -140,6 +142,14 @@ public class Games {
 		// meme fichier
 		Discounter christmasDiscounter = (string) -> System.out.println("--------" + string + "------------");
 		christmasDiscounter.applyDiscount("redefinition interface avec les fonctions lambada!");
+
+		/* *********************pattern d'Etat********************** */
+
+		// the mum ask for your son soda passing by his daughter
+		Son son = new Son(new Daughter());
+		// son.getMumSoda();
+		String sodaOfMum = son.getMumSoda();
+		System.out.println(sodaOfMum);
 
 	}
 
