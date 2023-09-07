@@ -15,12 +15,12 @@ public class Games {
 
 		/* ***********************pattern Composite******************** */
 		// Création de l 'Observable
-		GameViewables ViewsComposite = new GameViewables();
+		GameViewables viewsComposite = new GameViewables();
 
 		GameSwingView gsv = new GameSwingView();
 		gsv.createAndShowGUI();
 		// ajout de la vue graphique interactive Observer mais interagit
-		ViewsComposite.addViewable(gsv);
+		viewsComposite.addViewable(gsv);
 
 		/* **************************pattern Observer********************* */
 		// ajout de 3 vue graphique passive et non interactive
@@ -30,7 +30,7 @@ public class Games {
 			GameSwingPassiveView passiveView = new GameSwingPassiveView();
 			passiveView.createAndShowGUI();
 
-			ViewsComposite.addViewable(passiveView);
+			viewsComposite.addViewable(passiveView);
 
 			// sleep to move new Swing frame on window before genrate other view
 			try {
@@ -40,10 +40,10 @@ public class Games {
 			}
 		}
 
-		GameBuilder normalHightCardGameBuilder = new SmallHightCardGameBuilder();
+		GameBuilder smallHightCardGameBuilder = new SmallHightCardGameBuilder();
 
-		GameController gc = new GameController(normalHightCardGameBuilder.getDeck(), ViewsComposite,
-				normalHightCardGameBuilder.getEvaluator());
+		GameController gc = new GameController(smallHightCardGameBuilder.getDeck(), viewsComposite,
+				smallHightCardGameBuilder.getEvaluator());
 		gc.run();
 
 		/* ****************************pattern Factory****************************** */
