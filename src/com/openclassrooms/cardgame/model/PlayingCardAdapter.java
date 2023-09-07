@@ -1,7 +1,7 @@
 package com.openclassrooms.cardgame.model;
 
 public class PlayingCardAdapter extends PlayingCard implements IPlayableCard {
-	CoolCard thisCard = new CoolCard();
+	public CoolCard thisCard = new CoolCard();
 
 	public PlayingCardAdapter(Rank rank, Suit suit) {
 		super(rank, suit);

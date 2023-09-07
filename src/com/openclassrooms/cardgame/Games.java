@@ -5,14 +5,43 @@ import com.openclassrooms.cardgame.builder.SmallHightCardGameBuilder;
 import com.openclassrooms.cardgame.controller.GameController;
 import com.openclassrooms.cardgame.model.SomeClass;
 import com.openclassrooms.cardgame.model.SoundManager;
+import com.openclassrooms.cardgame.view.GameSwingPassiveView;
 import com.openclassrooms.cardgame.view.GameSwingView;
+import com.openclassrooms.cardgame.view.GameViewables;
 
 public class Games {
 
 	public static void main(String args[]) {
 
+		/* ***********************pattern Composite******************** */
+
+		GameViewables ViewsComposite = new GameViewables();
+
 		GameSwingView gsv = new GameSwingView();
 		gsv.createAndShowGUI();
+
+		ViewsComposite.addViewable(gsv);
+
+		/* **************************pattern Observer********************* */
+		for (int i = 0; i < 3; i++) {
+			GameSwingPassiveView passiveView = new GameSwingPassiveView();
+			passiveView.createAndShowGUI();
+
+			ViewsComposite.addViewable(passiveView);
+
+			// sleep to move new Swing frame on window before genrate other view
+			try {
+				Thread.sleep(2500);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+
+		GameBuilder normalHightCardGameBuilder = new SmallHightCardGameBuilder();
+
+		GameController gc = new GameController(normalHightCardGameBuilder.getDeck(), ViewsComposite,
+				normalHightCardGameBuilder.getEvaluator());
+		gc.run();
 
 		/* ****************************pattern Factory****************************** */
 
@@ -23,6 +52,7 @@ public class Games {
 		//// TestDeck, NormalDeck, SmallDeck qui utilise les methode herité de Deck ,
 		// et la methode shuffle dans leur constructor afin de melanger un certain
 		// nombre de carte selon le type de deck, jeu de carte
+
 		/*
 		 * GameController gc = new GameController(DeckFactory.makeDeck(DeckType.NORMAL),
 		 * gsv, GameEvaluatorFactory.makeEvaluator(EvaluatorType.HIGHT));
@@ -33,11 +63,13 @@ public class Games {
 		// design pattern Buider qui permet de recuperer une formule de jeu avec l
 		// option small jeu 32 cartes et l evaluation de la carte la plus forte
 		// Et lancer le leu avec ces options precise et assemblée ensemble
-		GameBuilder normalHightCardGameBuilder = new SmallHightCardGameBuilder();
 
-		GameController gc = new GameController(normalHightCardGameBuilder.getDeck(), gsv,
-				normalHightCardGameBuilder.getEvaluator());
-		gc.run();
+		/*
+		 * GameBuilder normalHightCardGameBuilder = new SmallHightCardGameBuilder();
+		 * 
+		 * GameController gc = new GameController(normalHightCardGameBuilder.getDeck(),
+		 * gsv, normalHightCardGameBuilder.getEvaluator()); gc.run();
+		 */
 
 		/* ********************************pattern Prototype********************** */
 
