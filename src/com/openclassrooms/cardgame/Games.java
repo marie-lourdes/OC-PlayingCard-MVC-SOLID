@@ -3,6 +3,7 @@ package com.openclassrooms.cardgame;
 import com.openclassrooms.cardgame.builder.GameBuilder;
 import com.openclassrooms.cardgame.builder.SmallHightCardGameBuilder;
 import com.openclassrooms.cardgame.controller.GameController;
+import com.openclassrooms.cardgame.model.Discounter;
 import com.openclassrooms.cardgame.model.SomeClass;
 import com.openclassrooms.cardgame.model.SoundManager;
 import com.openclassrooms.cardgame.view.GameSwingPassiveView;
@@ -101,6 +102,18 @@ public class Games {
 		System.out.println("soundmanager volume: " + soundManagerSingleton.getVolume());
 		soundManagerSingleton.setVolume(5);
 		System.out.println("soundmanager volume modifié: " + soundManagerSingleton.getVolume());
+
+		/*
+		 * ***********************Refinition des methodes d interface avec les fonction
+		 * lambada********************
+		 */
+		// java trouve la methode de l interface qui doit etre
+		// redfinit ci dessous
+		// sans nommer la methode a redefinir avec la fonction lambda, on implemente pas
+		// mais on l importe ou insere l interface focntionnele en l intgrant dans ce
+		// meme fichier
+		Discounter christmasDiscounter = (string) -> System.out.println("*******" + string + "*************");
+		christmasDiscounter.applyDiscount("kurehkfj'li");
 	}
 
 }
