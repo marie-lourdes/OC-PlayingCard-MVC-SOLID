@@ -57,7 +57,7 @@ public class Games {
 		// exemple qui ne sont pas lié aux jeux de cartes, voir dans le
 		// package:com.openclassrooms.exemples
 
-		// gc.run();
+		gc.run();
 
 		/* ****************************pattern Factory****************************** */
 
@@ -145,7 +145,8 @@ public class Games {
 		Discounter christmasDiscounter = (string) -> System.out.println("--------" + string + "------------");
 		christmasDiscounter.applyDiscount("redefinition interface avec les fonctions lambada!");
 
-		/* *********************pattern d'Etat********************** */
+		/* *****************************pattern d'Etat***************************** */
+
 		// changemnt du comportement de l objet initial Son et de la boisson apporté par
 		// le Son,
 		// en fonction des objet utilisé dans le Son, par le client main, Daughter ou
