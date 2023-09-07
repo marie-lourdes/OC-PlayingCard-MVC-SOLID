@@ -3,7 +3,7 @@ package com.openclassrooms.cardgame;
 import com.openclassrooms.cardgame.builder.GameBuilder;
 import com.openclassrooms.cardgame.builder.SmallHightCardGameBuilder;
 import com.openclassrooms.cardgame.controller.GameController;
-import com.openclassrooms.cardgame.model.CookSteak;
+import com.openclassrooms.cardgame.model.Chef;
 import com.openclassrooms.cardgame.model.Discounter;
 import com.openclassrooms.cardgame.model.PrepareSteak;
 import com.openclassrooms.cardgame.model.RareSteak;
@@ -122,20 +122,20 @@ public class Games {
 
 		/* *********************pattern Strategy********************** */
 
-		// La classe CookSteack est l objet strategy qui utilise une des classe de la
-		// famille d algorithme pour le cooking steack au choix
-		// l objet strategy CookSteak choisit une variante de l algoritme avec les
+		// La classe Chef est l objet strategy qui utilise une des classe de la
+		// famille d algorithme au choix
+		// l objet strategy Chef choisit une variante de l algorithme avec les
 		// classes d implementations rareSteak , mediumStek, WellDoneSteak
 		// d implementation et l interface commune preparesteack
 		// ce pattern utilise le principe open/closed, pas besoin de modifier la class
-		// CookSteack, lorsque l'on veux changer de cuisson dans sa methode cook(),
-		// on utilise une autre implementation lors de l instantiation de CookSteack
+		// Chef, lorsque l'on veux changer de cuisson dans sa methode cook(),
+		// on utilise une autre implementation lors de l instantiation de Chef
 		// sans toucher au code de la classe
 		// on passe par une interface commune et differente implementation, qui injecté
-		// dans le constructor de CookSteak
+		// dans le constructor de Chef
 
-		PrepareSteak cookSteak = new CookSteak(new RareSteak());
-		cookSteak.cook("Charal");
+		PrepareSteak chef = new Chef(new RareSteak());
+		chef.cook("Charal");
 	}
 
 }

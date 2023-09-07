@@ -1,10 +1,10 @@
 package com.openclassrooms.cardgame.model;
 
 /* *********************pattern Strategy********************** */
-public class CookSteak implements PrepareSteak {
+public class Chef implements PrepareSteak {
 	public PrepareSteak prepareSteak;
 
-	public CookSteak(PrepareSteak prepareSteak) {
+	public Chef(PrepareSteak prepareSteak) {
 		this.prepareSteak = prepareSteak;
 	}
 
