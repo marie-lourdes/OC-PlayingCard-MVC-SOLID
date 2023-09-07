@@ -1,4 +1,4 @@
-package com.openclassrooms.cardgame.model;
+package com.openclassrooms.exemples;
 
 /* *********************pattern Strategy********************** */
 public class Chef implements PrepareSteak {

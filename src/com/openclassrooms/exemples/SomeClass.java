@@ -1,4 +1,4 @@
-package com.openclassrooms.cardgame.model;
+package com.openclassrooms.exemples;
 
 public class SomeClass implements Cloneable {
 	public int someField;

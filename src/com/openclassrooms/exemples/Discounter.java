@@ -1,4 +1,4 @@
-package com.openclassrooms.cardgame.model;
+package com.openclassrooms.exemples;
 
 public interface Discounter {
 	void applyDiscount(String string);

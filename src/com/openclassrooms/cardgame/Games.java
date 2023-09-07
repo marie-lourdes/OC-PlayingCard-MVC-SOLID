@@ -3,15 +3,15 @@ package com.openclassrooms.cardgame;
 import com.openclassrooms.cardgame.builder.GameBuilder;
 import com.openclassrooms.cardgame.builder.SmallHightCardGameBuilder;
 import com.openclassrooms.cardgame.controller.GameController;
-import com.openclassrooms.cardgame.model.Chef;
-import com.openclassrooms.cardgame.model.Discounter;
-import com.openclassrooms.cardgame.model.PrepareSteak;
-import com.openclassrooms.cardgame.model.RareSteak;
-import com.openclassrooms.cardgame.model.SomeClass;
 import com.openclassrooms.cardgame.model.SoundManager;
 import com.openclassrooms.cardgame.view.GameSwingPassiveView;
 import com.openclassrooms.cardgame.view.GameSwingView;
 import com.openclassrooms.cardgame.view.GameViewables;
+import com.openclassrooms.exemples.Chef;
+import com.openclassrooms.exemples.Discounter;
+import com.openclassrooms.exemples.PrepareSteak;
+import com.openclassrooms.exemples.RareSteak;
+import com.openclassrooms.exemples.SomeClass;
 
 public class Games {
 
@@ -51,7 +51,8 @@ public class Games {
 		// desactiver le run du controller pour voir en oeuvre le pattern Prototype, le
 		// pattern Strategy, et
 		// le test de fonction lambda avec redifinition de l interface fonctionnelle
-		// exemple qui ne sont pas lié aux jeux de cartes
+		// exemple qui ne sont pas lié aux jeux de cartes, voir dans le
+		// package:com.openclassrooms.exemples
 		gc.run();
 
 		/* ****************************pattern Factory****************************** */

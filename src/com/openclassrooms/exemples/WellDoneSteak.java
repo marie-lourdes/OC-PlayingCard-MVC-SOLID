@@ -1,4 +1,4 @@
-package com.openclassrooms.cardgame.model;
+package com.openclassrooms.exemples;
 
 public class WellDoneSteak implements PrepareSteak {
 
