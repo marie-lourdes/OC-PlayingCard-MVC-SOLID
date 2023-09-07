@@ -4,6 +4,7 @@ import com.openclassrooms.cardgame.builder.GameBuilder;
 import com.openclassrooms.cardgame.builder.SmallHightCardGameBuilder;
 import com.openclassrooms.cardgame.controller.GameController;
 import com.openclassrooms.cardgame.model.Discounter;
+import com.openclassrooms.cardgame.model.PrepareSteak;
 import com.openclassrooms.cardgame.model.SomeClass;
 import com.openclassrooms.cardgame.model.SoundManager;
 import com.openclassrooms.cardgame.view.GameSwingPassiveView;
@@ -48,7 +49,7 @@ public class Games {
 		// desactiver le run du controller pour voir en oeuvre le pattern Prototype et
 		// le test de fonction lambda avec redifinition de l interface
 		// exemple qui ne sont pas lié aux jeux de cartes
-		gc.run();
+		// gc.run();
 
 		/* ****************************pattern Factory****************************** */
 
@@ -115,6 +116,37 @@ public class Games {
 		// meme fichier
 		Discounter christmasDiscounter = (string) -> System.out.println("--------" + string + "------------");
 		christmasDiscounter.applyDiscount("redefinition interface avec les fonctions lambada!");
+
+		/* *********************pattern Strategy********************** */
+		PrepareSteak cookSteak = new RareSteak();
+		cookSteak.cook("Charal");
+	}
+
+}
+
+/* *********************pattern Strategy********************** */
+class RareSteak implements PrepareSteak {
+
+	public void cook(String steak) {
+		/* pas trop longtemps */
+		System.out.println(" cuisson bleu");
+	}
+
+}
+
+class Medium implements PrepareSteak {
+
+	public void cook(String steak) {
+		/* garder le steak sur le grill un peu trop longtemps */
+		System.out.println(steak + " cuisson à point");
+	}
+}
+
+class WellDoneSteak implements PrepareSteak {
+
+	public void cook(String steak) {
+		/* oublier le steak et revenir plus tard */
+		System.out.println(" cuisson bien cuit");
 	}
 
 }
